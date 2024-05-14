@@ -53,7 +53,7 @@ def load_csv():
         logger.error(f"Error loading CSV file: {e}")
         raise HTTPException(status_code=500, detail="Error loading CSV file")
 
-@app.get("/random-row", response_model=RandomRowResponse)
+@app.get("/", response_model=RandomRowResponse)
 @limiter.limit("5/minute")
 def get_random_row(df: pd.DataFrame = Depends(load_csv)):
     try:
