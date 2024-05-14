@@ -64,7 +64,6 @@ def get_random_row(request: Request, df: pd.DataFrame = Depends(load_csv)):
 def health_check():
     return {"status": "ok"}
 
-# Run the FastAPI application
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
