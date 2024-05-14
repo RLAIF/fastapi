@@ -18,7 +18,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Environment variable for CSV file path
-CSV_FILE_PATH = os.getenv("CSV_FILE_PATH", "your_file.csv")
+CSV_FILE_PATH = os.getenv("CSV_FILE_PATH", "personas.csv")
 
 # Rate Limiting
 limiter = Limiter(key_func=get_remote_address)
@@ -30,7 +30,6 @@ app.add_middleware(SlowAPIMiddleware)
 origins = [
     "http://localhost",
     "http://localhost:8000",
-    # Add more allowed origins here
 ]
 app.add_middleware(
     CORSMiddleware,
